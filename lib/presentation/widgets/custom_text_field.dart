@@ -78,6 +78,12 @@ class CustomTextField extends StatelessWidget {
               log("validation: $validation");
               if (validation) {
                 homeController.changeValuesInTextFieldDetected();
+              } else {
+                Get.showSnackbar( const GetSnackBar(
+                  title: "Error",
+                  message: "Please enter a number in mentioned range.",
+                  duration:  Duration(seconds: 2),
+                ));
               }
             },
           ),
