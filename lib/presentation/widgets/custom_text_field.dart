@@ -12,11 +12,17 @@ class CustomTextField extends StatelessWidget {
       required this.homeController,
       required this.controller,
       required this.formKey,
-      required this.validator});
+      required this.validator,
+      required this.size,
+      required this.focusNode,
+      required this.onTap});
   final String hintText;
   final TextEditingController controller;
   final GlobalKey<FormState> formKey;
   final FormFieldValidator validator;
+  final FocusNode focusNode;
+  final Size size;
+  final VoidCallback onTap;
 
   final MyFunctions homeController;
 
@@ -25,9 +31,11 @@ class CustomTextField extends StatelessWidget {
     return Form(
       key: formKey,
       child: SizedBox(
-        width: MediaQuery.sizeOf(context).width * 0.3,
+        width: size.width * 0.3 < 300 ? 300 : size.width * 0.3,
         child: Obx(
           () => TextFormField(
+            onTap: onTap,
+            focusNode: focusNode,
             controller: controller,
             inputFormatters: [FilteringTextInputFormatter.digitsOnly],
             style: TextStyle(

@@ -3,7 +3,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class SpeedSlider extends StatelessWidget {
-  const SpeedSlider({super.key});
+  const SpeedSlider({super.key, required this.size});
+  final Size size;
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +13,7 @@ class SpeedSlider extends StatelessWidget {
 
     return Obx(
       () => SizedBox(
-        width: MediaQuery.of(context).size.width * 0.3,
+        width: size.width * 0.3 < 300 ? 300 : size.width * 0.3,
         child: Column(
           children: [
             SliderTheme(
@@ -37,7 +38,6 @@ class SpeedSlider extends StatelessWidget {
                 label: speedSteps[homeController.speed.value],
                 onChanged: (value) {
                   homeController.changeSpeedOfProgress(value.toInt() % 3);
-                  
                 },
               ),
             ),

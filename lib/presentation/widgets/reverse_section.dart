@@ -3,13 +3,18 @@ import 'package:flutter/material.dart';
 
 class ReverseSection extends StatelessWidget {
   const ReverseSection({
-    super.key,
+    super.key, required this.size,
   });
+
+  final Size size;
 
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width * 0.3,
+                  width: size.width * 0.3 < 300
+          ? 300
+          : size.width * 0.3,
+
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [

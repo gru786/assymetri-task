@@ -16,10 +16,12 @@ class ToggleSwitch extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Switch(
-            value: homeController.isOn.value,
+            value: homeController.isReverse.value,
             onChanged: (value) {
-              homeController.isOn.value = value;
+              homeController.isReverse.value = value;
             },
+            focusColor: homeController.selectedActualColor.value,
+            activeColor: homeController.selectedActualColor.value,
           ),
           // Text(
           //   homeController.isOn.value ? 'ON' : 'OFF',

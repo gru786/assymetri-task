@@ -4,7 +4,8 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 
 class ColorDropdown extends StatelessWidget {
-  const ColorDropdown({super.key});
+  const ColorDropdown({super.key, required this.size, });
+  final Size size;
 
   @override
   Widget build(BuildContext context) {
@@ -15,7 +16,7 @@ class ColorDropdown extends StatelessWidget {
         () => Card(
           elevation: 3,
           child: Container(
-            width: MediaQuery.of(context).size.width * 0.3,
+            width: size.width * 0.3 < 300 ? 300 :size.width * 0.3,
             decoration: BoxDecoration(
               borderRadius: BorderRadius.circular(12),
             ),

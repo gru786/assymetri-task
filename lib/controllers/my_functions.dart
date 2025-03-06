@@ -11,7 +11,7 @@ class MyFunctions extends GetxController {
   TextEditingController totalItemsController = TextEditingController();
   TextEditingController itemsPerLineController = TextEditingController();
   RxInt speed = 0.obs;
-  RxBool isOn = false.obs;
+  RxBool isReverse = false.obs;
   RxInt totalItems = 1.obs;
   RxInt itemsPerLine = 1.obs;
 

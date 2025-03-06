@@ -18,12 +18,15 @@ class GradientProgressIndicator extends StatelessWidget {
         borderRadius: BorderRadius.circular(10),
         border: Border.all(color: Colors.black, width: 1),
       ),
-      child: Stack(
-        children: [
-          Obx(
-            () => Container(
+      child: Obx(
+        () => Stack(
+          alignment: homeController.isReverse.value
+              ? Alignment.centerRight
+              : Alignment.centerLeft,
+          children: [
+            Container(
               width: homeController.progressValues[index].value == 1.0
-                  ? double.infinity // Fill completely when 100%
+                  ? double.maxFinite // Fill completely when 100%
                   : 300 * homeController.progressValues[index].value,
               decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(10),
@@ -42,9 +45,9 @@ class GradientProgressIndicator extends StatelessWidget {
                   end: Alignment.centerRight,
                 ),
               ),
-            ),
-          )
-        ],
+            )
+          ],
+        ),
       ),
     );
   }
